@@ -1,6 +1,7 @@
-# myapp
+# UI CLONE
 
-A new Flutter project.
+
+A new Flutter project TO CLONE LOG INS OF VARIOUS SOCIAL MEDIA APPS.
 
 ## Getting Started
 
