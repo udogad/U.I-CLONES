@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WhatsAppLoginScreen extends StatelessWidget {
-  const WhatsAppLoginScreen({super.key });
+  const WhatsAppLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

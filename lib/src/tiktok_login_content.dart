@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:myapp/theme_provider.dart'; // Assuming theme_provider.dart is in the same directory
+import 'package:myapp/src/theme_provider.dart'; // Assuming theme_provider.dart is in the same directory
 
 class TikTokLoginContent extends StatefulWidget {
   const TikTokLoginContent({super.key});
@@ -89,10 +89,9 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
             Icon(
               Icons.tiktok, // Using a placeholder icon
               size: 60,
-              color:
-                  isDarkMode
-                      ? Colors.white
-                      : Colors.black, // Adjust color for theme
+              color: isDarkMode
+                  ? Colors.white
+                  : Colors.black, // Adjust color for theme
             ),
             const SizedBox(height: 40), // Adjust spacing
             Text(
@@ -116,10 +115,9 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
                   color: isDarkMode ? Colors.grey[600] : Colors.grey[400],
                 ),
                 filled: true,
-                fillColor:
-                    isDarkMode
-                        ? Colors.grey[900]
-                        : Colors.grey[200], // Adjust fill color for theme
+                fillColor: isDarkMode
+                    ? Colors.grey[900]
+                    : Colors.grey[200], // Adjust fill color for theme
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5.0),
                   borderSide: BorderSide.none,
@@ -147,10 +145,9 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
                   color: isDarkMode ? Colors.grey[600] : Colors.grey[400],
                 ),
                 filled: true,
-                fillColor:
-                    isDarkMode
-                        ? Colors.grey[900]
-                        : Colors.grey[200], // Adjust fill color for theme
+                fillColor: isDarkMode
+                    ? Colors.grey[900]
+                    : Colors.grey[200], // Adjust fill color for theme
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5.0),
                   borderSide: BorderSide.none,
@@ -164,10 +161,9 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
                     _isPasswordVisible
                         ? Icons.visibility
                         : Icons.visibility_off,
-                    color:
-                        isDarkMode
-                            ? Colors.grey[600]
-                            : Colors.grey[400], // Adjust icon color for theme
+                    color: isDarkMode
+                        ? Colors.grey[600]
+                        : Colors.grey[400], // Adjust icon color for theme
                   ),
                   onPressed: _togglePasswordVisibility,
                 ),
@@ -177,41 +173,39 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
             const SizedBox(height: 25), // Adjust spacing
             _isLoading
                 ? Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      isDarkMode ? Colors.white : Colors.black,
-                    ), // Adjust color for theme
-                  ),
-                )
-                : ElevatedButton(
-                  onPressed: _isButtonEnabled ? _login : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        _isButtonEnabled
-                            ? Colors
-                                .red // TikTok's primary color
-                            : isDarkMode
-                            ? Colors.grey[800]
-                            : Colors.grey[300], // Disabled color for theme
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        isDarkMode ? Colors.white : Colors.black,
+                      ), // Adjust color for theme
                     ),
-                  ),
-                  child: Text(
-                    'Log in',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color:
-                          _isButtonEnabled
-                              ? Colors.white
-                              : (isDarkMode
+                  )
+                : ElevatedButton(
+                    onPressed: _isButtonEnabled ? _login : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: _isButtonEnabled
+                          ? Colors
+                                .red // TikTok's primary color
+                          : isDarkMode
+                          ? Colors.grey[800]
+                          : Colors.grey[300], // Disabled color for theme
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    child: Text(
+                      'Log in',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: _isButtonEnabled
+                            ? Colors.white
+                            : (isDarkMode
                                   ? Colors.grey[600]
                                   : Colors.grey[800]), // Text color for theme
-                      fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
             const SizedBox(height: 20), // Adjust spacing
             TextButton(
               onPressed: () {
@@ -220,10 +214,9 @@ class _TikTokLoginContentState extends State<TikTokLoginContent> {
               child: Text(
                 'Forgot password?',
                 style: TextStyle(
-                  color:
-                      isDarkMode
-                          ? Colors.blueAccent
-                          : Colors.blue, // Adjust color for theme
+                  color: isDarkMode
+                      ? Colors.blueAccent
+                      : Colors.blue, // Adjust color for theme
                   fontSize: 14,
                 ),
               ),

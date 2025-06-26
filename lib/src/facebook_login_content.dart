@@ -4,13 +4,13 @@ import 'theme_provider.dart'; // Assuming theme_provider.dart is in the same dir
 
 class FacebookLoginContent extends StatefulWidget {
   const FacebookLoginContent({super.key});
-  
+
   @override
   State<FacebookLoginContent> createState() => _FacebookLoginContentState();
 }
 
 class _FacebookLoginContentState extends State<FacebookLoginContent> {
-  final _emailPhoneController =  TextEditingController();
+  final _emailPhoneController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
   bool _isButtonEnabled = false;
@@ -39,7 +39,8 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
 
   void _updateButtonState() {
     setState(() {
-      _isButtonEnabled = _emailPhoneController.text.isNotEmpty &&
+      _isButtonEnabled =
+          _emailPhoneController.text.isNotEmpty &&
           _passwordController.text.isNotEmpty;
     });
   }
@@ -59,7 +60,8 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
 
       // In a real app, you would perform authentication here
       debugPrint(
-          'Logging in with: ${_emailPhoneController.text} and ${_passwordController.text}');
+        'Logging in with: ${_emailPhoneController.text} and ${_passwordController.text}',
+      );
     }
   }
 
@@ -75,7 +77,9 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.1), // Adjust spacing based on screen height
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ), // Adjust spacing based on screen height
             // Facebook Logo/Text
             Text(
               'facebook',
@@ -83,7 +87,9 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
               style: TextStyle(
                 fontSize: 50.0,
                 fontWeight: FontWeight.bold,
-                color: isDarkMode ? Colors.white : Colors.blue[700], // Facebook blue
+                color: isDarkMode
+                    ? Colors.white
+                    : Colors.blue[700], // Facebook blue
               ),
             ),
             SizedBox(height: 50.0),
@@ -95,14 +101,19 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
               style: TextStyle(color: isDarkMode ? Colors.white : Colors.black),
               decoration: InputDecoration(
                 hintText: 'Email or Phone Number',
-                hintStyle: TextStyle(color: isDarkMode ? Colors.grey[600] : Colors.grey[600]),
+                hintStyle: TextStyle(
+                  color: isDarkMode ? Colors.grey[600] : Colors.grey[600],
+                ),
                 filled: true,
                 fillColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
                 ),
-                contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 14.0,
+                ),
               ),
             ),
             SizedBox(height: 16.0),
@@ -115,17 +126,24 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
               style: TextStyle(color: isDarkMode ? Colors.white : Colors.black),
               decoration: InputDecoration(
                 hintText: 'Password',
-                hintStyle: TextStyle(color: isDarkMode ? Colors.grey[600] : Colors.grey[600]),
+                hintStyle: TextStyle(
+                  color: isDarkMode ? Colors.grey[600] : Colors.grey[600],
+                ),
                 filled: true,
                 fillColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
                 ),
-                contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 14.0,
+                ),
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
                     color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
                   ),
                   onPressed: _togglePasswordVisibility,
@@ -137,7 +155,9 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
             ElevatedButton(
               onPressed: _isButtonEnabled && !_isLoading ? _login : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: _isButtonEnabled ? Colors.blue[700] : (isDarkMode ? Colors.blue[900] : Colors.blue[300]),
+                backgroundColor: _isButtonEnabled
+                    ? Colors.blue[700]
+                    : (isDarkMode ? Colors.blue[900] : Colors.blue[300]),
                 padding: EdgeInsets.symmetric(vertical: 14.0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
@@ -177,18 +197,22 @@ class _FacebookLoginContentState extends State<FacebookLoginContent> {
               ),
             ),
             Expanded(child: Container()), // Flexible space to push content up
-             // Sign Up Section (Simplified)
+            // Sign Up Section (Simplified)
             Divider(
-                color: isDarkMode ? Colors.grey[700] : Colors.grey[400],
-                thickness: 1.0),
+              color: isDarkMode ? Colors.grey[700] : Colors.grey[400],
+              thickness: 1.0,
+            ),
             const SizedBox(height: 20.0),
             Center(
               child: TextButton(
                 onPressed: () {}, // Handle sign up
-                child: Text('Create New Account',
-                    style: TextStyle(
-                        color: isDarkMode ? Colors.blue[300] : Colors.blue[700],
-                        fontWeight: FontWeight.bold)),
+                child: Text(
+                  'Create New Account',
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.blue[300] : Colors.blue[700],
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 20.0),

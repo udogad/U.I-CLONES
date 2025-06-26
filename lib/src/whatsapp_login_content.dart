@@ -7,15 +7,16 @@ class WhatsAppLoginContent extends StatefulWidget {
   const WhatsAppLoginContent({super.key});
 
   @override
-  _WhatsAppLoginContentState createState() => _WhatsAppLoginContentState();
+  WhatsAppLoginContentState createState() => WhatsAppLoginContentState();
 }
-class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
+
+class WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
   final _countryCodeController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   bool _isButtonEnabled = false;
   bool _isLoading = false;
   final FocusNode _countryCodeFocusNode = FocusNode();
- 
+
   @override
   void initState() {
     super.initState();
@@ -33,7 +34,8 @@ class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
 
   void _updateButtonState() {
     setState(() {
-      _isButtonEnabled = _phoneNumberController.text.isNotEmpty; // Basic check for now
+      _isButtonEnabled =
+          _phoneNumberController.text.isNotEmpty; // Basic check for now
     });
   }
 
@@ -48,7 +50,9 @@ class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
           _isLoading = false;
         });
       });
-      debugPrint('Phone Number: ${_countryCodeController.text}${_phoneNumberController.text}');
+      debugPrint(
+        'Phone Number: ${_countryCodeController.text}${_phoneNumberController.text}',
+      );
     }
   }
 
@@ -59,8 +63,13 @@ class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Enter your phone number', style: TextStyle(color: Colors.white)), // WhatsApp specific title and text color
-        backgroundColor: isDarkMode ? const Color(0xFF202C33) : const Color(0xFF075E54), // WhatsApp AppBar color
+        title: Text(
+          'Enter your phone number',
+          style: TextStyle(color: Colors.white),
+        ), // WhatsApp specific title and text color
+        backgroundColor: isDarkMode
+            ? const Color(0xFF202C33)
+            : const Color(0xFF075E54), // WhatsApp AppBar color
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -100,9 +109,19 @@ class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Phone Number',
-                      hintStyle: TextStyle(color: isDarkMode ? Colors.white54 : Colors.black38),
-                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: isDarkMode ? Colors.white60 : Colors.black54)),
-                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: isDarkMode ? Colors.tealAccent : Colors.teal)),
+                      hintStyle: TextStyle(
+                        color: isDarkMode ? Colors.white54 : Colors.black38,
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isDarkMode ? Colors.white60 : Colors.black54,
+                        ),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isDarkMode ? Colors.tealAccent : Colors.teal,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -111,24 +130,38 @@ class _WhatsAppLoginContentState extends State<WhatsAppLoginContent> {
             const SizedBox(height: 10.0),
             Text(
               'Carrier SMS charges may apply',
-              style: TextStyle(fontSize: 12.0, color: isDarkMode ? Colors.white54 : Colors.black45),
+              style: TextStyle(
+                fontSize: 12.0,
+                color: isDarkMode ? Colors.white54 : Colors.black45,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30.0),
             ElevatedButton(
               onPressed: _isButtonEnabled ? _onNextPressed : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: isDarkMode ? const Color(0xFF075E54) : const Color(0xFF128C7E), // WhatsApp button color
-                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                backgroundColor: isDarkMode
+                    ? const Color(0xFF075E54)
+                    : const Color(0xFF128C7E), // WhatsApp button color
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40.0,
+                  vertical: 15.0,
+                ),
               ),
               child: _isLoading
                   ? SizedBox(
                       width: 20.0,
                       height: 20.0,
                       child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(isDarkMode ? Colors.black : Colors.white),
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          isDarkMode ? Colors.black : Colors.white,
+                        ),
                       ),
-                    ) : const Text('NEXT', style: TextStyle(fontSize: 18.0, color: Colors.white)),
+                    )
+                  : const Text(
+                      'NEXT',
+                      style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    ),
             ),
           ],
         ),
